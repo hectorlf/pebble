@@ -14,6 +14,8 @@ import java.util.Map;
 
 import com.coverity.security.Escape;
 import com.mitchellbosecke.pebble.extension.Filter;
+import com.mitchellbosecke.pebble.template.EvaluationContext;
+import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 
 public class EscapeFilter implements Filter {
 
@@ -29,7 +31,7 @@ public class EscapeFilter implements Filter {
         return argumentNames;
     }
 
-    public Object apply(Object inputObject, Map<String, Object> args) {
+    public Object apply(Object inputObject, Map<String, Object> args, EvaluationContext context, PebbleTemplateImpl self) {
         if (!(inputObject instanceof String)) {
             return inputObject;
         }

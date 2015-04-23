@@ -94,9 +94,6 @@ public class ArgumentsNode implements Node {
             }
         }
 
-        result.put("_self", self);
-        result.put("_context", context);
-
         return result;
     }
 

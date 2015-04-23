@@ -51,6 +51,6 @@ public class FilterExpression extends BinaryExpression<Object> {
 
         Map<String, Object> namedArguments = args.getArgumentMap(self, context, filter);
 
-        return filter.apply(getLeftExpression().evaluate(self, context), namedArguments);
+        return filter.apply(getLeftExpression().evaluate(self, context), namedArguments, context, self);
     }
 }

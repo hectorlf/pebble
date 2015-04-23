@@ -19,6 +19,7 @@ import java.util.Map;
 
 import com.mitchellbosecke.pebble.extension.Filter;
 import com.mitchellbosecke.pebble.template.EvaluationContext;
+import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 
 public class DateFilter implements Filter {
 
@@ -35,7 +36,7 @@ public class DateFilter implements Filter {
     }
 
     @Override
-    public Object apply(Object input, Map<String, Object> args) {
+    public Object apply(Object input, Map<String, Object> args, EvaluationContext context, PebbleTemplateImpl self) {
         if (input == null) {
             return null;
         }
@@ -44,7 +45,6 @@ public class DateFilter implements Filter {
         DateFormat existingFormat = null;
         DateFormat intendedFormat = null;
 
-        EvaluationContext context = (EvaluationContext) args.get("_context");
         Locale locale = context.getLocale();
 
         intendedFormat = new SimpleDateFormat((String) args.get("format"), locale);

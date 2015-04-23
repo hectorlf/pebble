@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.mitchellbosecke.pebble.extension.Filter;
+import com.mitchellbosecke.pebble.template.EvaluationContext;
+import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 
 public class RawFilter implements Filter {
 
@@ -19,7 +21,7 @@ public class RawFilter implements Filter {
         return null;
     }
 
-    public Object apply(Object inputObject, Map<String, Object> args) {
+    public Object apply(Object inputObject, Map<String, Object> args, EvaluationContext context, PebbleTemplateImpl self) {
         /*
          * Doesn't actually do anything to the input. This filter's existence is
          * enough for the EscaperNodeVisitor to know not to escape this

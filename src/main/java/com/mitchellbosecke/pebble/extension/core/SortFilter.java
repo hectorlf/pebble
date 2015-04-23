@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.mitchellbosecke.pebble.extension.Filter;
+import com.mitchellbosecke.pebble.template.EvaluationContext;
+import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 
 public class SortFilter implements Filter {
 
@@ -23,7 +25,7 @@ public class SortFilter implements Filter {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
-    public List<Comparable> apply(Object input, Map<String, Object> args) {
+    public List<Comparable> apply(Object input, Map<String, Object> args, EvaluationContext context, PebbleTemplateImpl self) {
         if (input == null) {
             return null;
         }

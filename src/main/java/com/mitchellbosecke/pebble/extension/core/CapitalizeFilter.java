@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.mitchellbosecke.pebble.extension.Filter;
+import com.mitchellbosecke.pebble.template.EvaluationContext;
+import com.mitchellbosecke.pebble.template.PebbleTemplateImpl;
 
 public class CapitalizeFilter implements Filter {
 
@@ -22,7 +24,7 @@ public class CapitalizeFilter implements Filter {
     }
 
     @Override
-    public Object apply(Object input, Map<String, Object> args) {
+    public Object apply(Object input, Map<String, Object> args, EvaluationContext context, PebbleTemplateImpl self) {
         if (input == null) {
             return null;
         }
